@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>开云 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde9e0 0%, #f8d9c8 55%, #f0cebc 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2f2b28;
+        }
+
+        .content-card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 251, 245, 0.92);
+            backdrop-filter: blur(2px);
+            padding: 2.8rem 2.6rem;
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px -12px rgba(140, 90, 60, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(250, 235, 220, 0.6);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 28px 48px -16px rgba(160, 100, 70, 0.3);
+        }
+
+        .article-title {
+            font-size: 2.4rem;
+            font-weight: 520;
+            letter-spacing: -0.02em;
+            color: #3d2c21;
+            border-left: 6px solid #c9916e;
+            padding-left: 1.2rem;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .sub-head {
+            font-size: 1.05rem;
+            color: #7b6252;
+            margin: 0.75rem 0 2rem 1.8rem;
+            font-weight: 380;
+            border-bottom: 1px dashed #d6b8a6;
+            padding-bottom: 0.8rem;
+            max-width: 85%;
+        }
+
+        .byline {
+            font-size: 0.9rem;
+            color: #b29580;
+            margin: -1rem 0 1.8rem 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .byline span {
+            background: #ead6c8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #544136;
+        }
+
+        p {
+            margin: 1.4rem 0;
+            font-size: 1.02rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .inset-quote {
+            background: #f4e7de;
+            padding: 1.4rem 2rem;
+            margin: 2.2rem 0;
+            border-radius: 40px 12px 40px 12px;
+            font-style: normal;
+            color: #4d382c;
+            border-left: 4px solid #c9916e;
+            font-weight: 370;
+            box-shadow: inset 0 1px 4px rgba(120, 70, 40, 0.08);
+            quotes: "“" "”" "‘" "’";
+        }
+
+        .inset-quote::before {
+            content: "“";
+            font-size: 2.2rem;
+            line-height: 0.8;
+            color: #bd8a6b;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        .inset-quote::after {
+            content: "”";
+            font-size: 2.2rem;
+            line-height: 0.8;
+            color: #bd8a6b;
+            margin-left: 6px;
+            vertical-align: bottom;
+        }
+
+        .action-sentence {
+            background: #f7ede6;
+            padding: 1.6rem 2.2rem;
+            margin: 2.2rem 0 1.6rem;
+            border-radius: 60px 20px 60px 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            border: 1px solid #e2ccbc;
+            box-shadow: 0 6px 12px -8px rgba(100, 60, 35, 0.12);
+        }
+
+        .action-sentence a {
+            color: #7f4e33;
+            background: transparent;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+            border: 1px solid #dbbca9;
+            transition: all 0.2s ease;
+            display: inline-block;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .action-sentence a:hover {
+            background: #c9916e;
+            color: #fcf6f0;
+            border-color: #b07553;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .faq-mini {
+            margin-top: 2.8rem;
+            border-top: 1px solid #e3cfc0;
+            padding-top: 1.6rem;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            margin: 0.9rem 0;
+        }
+
+        .faq-q {
+            font-weight: 470;
+            color: #543e30;
+            font-size: 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-q::before {
+            content: "▹ ";
+            color: #b58264;
+        }
+
+        .faq-a {
+            color: #4d3a2e;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+            border-left: 2px dotted #dbbca9;
+            margin-left: 0.2rem;
+        }
+
+        .footer-note {
+            margin-top: 2.2rem;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #a58774;
+            border-top: 1px dashed #dcc9bb;
+            padding-top: 1.4rem;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d2b7a5, transparent);
+            margin: 1.8rem 0;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .content-card {
+                padding: 1.8rem 1.4rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+            .article-title {
+                font-size: 1.9rem;
+                padding-left: 0.8rem;
+                border-left-width: 4px;
+            }
+            .sub-head {
+                margin-left: 1rem;
+                font-size: 0.95rem;
+                max-width: 100%;
+            }
+            .byline {
+                margin-left: 1rem;
+                flex-wrap: wrap;
+            }
+            .inset-quote {
+                padding: 1.2rem 1.2rem;
+                margin: 1.8rem 0;
+            }
+            .action-sentence {
+                padding: 1.2rem 1rem;
+                font-size: 1rem;
+                border-radius: 40px 16px 40px 16px;
+            }
+            .action-sentence a {
+                font-size: 0.95rem;
+                padding: 0.15rem 0.5rem;
+            }
+            .faq-a {
+                padding-left: 1rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .article-title {
+                font-size: 1.6rem;
+            }
+            .action-sentence a {
+                display: inline-block;
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="content-card">
+
+    <h1 class="article-title">从一处安静的入口开始</h1>
+    <div class="sub-head">关于稳定访问与页面本身的简短叙述</div>
+    <div class="byline">
+        <span>博客手记</span> · 阅读约 4 分钟
+    </div>
+
+    <p>
+        当你在浏览器地址栏输入一个熟悉的网址，等待页面呈现的那几秒，其实是一次小小的信任交付。<strong>一个可靠的入口</strong>，不需要太多修饰，但应当清晰、持续、易于辨认。今天想聊的，就是这样一个地方：它没有复杂的跳转，没有冗余的引导，只是静静地待在那里，像一本翻到常用章节的书。
+    </p>
+
+    <p>
+        很多站点为了“触达”做了太多花哨的动效和弹层，反而让初次到访的人感到一丝犹豫。而有些页面，则选择做减法——把核心信息放在明处，把路径简化到直觉可以理解的程度。<a href="https://m-zh-ky.com">开云</a> 就是后一种思路的体现。你不需要猜测下一步该点哪里，因为内容本身已经足够说明来意。
+    </p>
+
+    <div class="inset-quote">
+        一个好的页面说明，不是告诉你能做什么，而是让你自然理解这里是什么。入口的稳定，来自对用户注意力的尊重。
+    </div>
+
+    <p>
+        从结构上看，这类页面通常包含三个层次：第一层是身份与名称，让人确认自己没有走错地方；第二层是简短的语境提示，有时是一句话，有时是一段摘要；第三层则是可选的拓展信息，比如常见问题、路线提示或简单的引用。这三个层次并不需要严格分割，可以像日常对话一样彼此交织。
+    </p>
+
+    <p>
+        在实际体验中，“稳定”往往体现在细节里：字体大小不随缩放变形，深色模式下依然可读，链接的交互反馈柔和但不迟钝。这些看似微小的设计，累积起来就是用户心里的“靠谱”。对于喜欢直接获取信息的人来说，一个不打扰、不催促的页面就是最好的款待。
+    </p>
+
+    <div class="action-sentence">
+        如果你正在寻找一个不绕弯子的起点，不妨从这里开始：<a href="https://m-zh-ky.com">开云</a>
+    </div>
+
+    <p>
+        页面说明不必洋洋洒洒，但最好能回答两个潜在问题：“这里是做什么的？”以及“我接下来可以做什么？”——当然，第二个问题也可以留给用户自己决定。互联网的有趣之处就在于，每个人都可以按自己的节奏探索。
+    </p>
+
+    <hr>
+
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">这个页面和普通的落地页有什么不同？</div>
+            <div class="faq-a">它更强调信息本身的呈现，减少干扰元素，让访问者把注意力放在内容和入口的识别上。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">如何确认链接指向是长期有效的？</div>
+            <div class="faq-a">链接 <a href="https://m-zh-ky.com" style="color:#7f4e33; text-decoration:underline; text-underline-offset:3px;">开云</a> 使用标准 HTTPS 协议，域名稳定，适合作为常用书签保存。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">移动端访问体验如何？</div>
+            <div class="faq-a">页面采用响应式设计，在手机和平板上会自动调整排版，卡片和链接都保留了充足触控空间。</div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        · 页面说明 · 2025 · 简洁博客式
+    </div>
+
+</div>
+</body>
+</html>
