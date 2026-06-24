@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>走近爱游戏 · 发现游戏本真</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #faf7f2;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", "Times New Roman", serif;
+      color: #2c2b28;
+      line-height: 1.7;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #fffefa;
+      padding: 2.8rem 2.2rem;
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.8rem; }
+      .page { padding: 1.8rem 1.2rem; }
+    }
+
+    /* hero 区 */
+    .hero {
+      text-align: center;
+      padding: 1.2rem 0 2.4rem;
+      border-bottom: 1px solid #e7e2d9;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #3d3a33;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #6b655b;
+      max-width: 560px;
+      margin: 0.8rem auto 0;
+    }
+
+    /* 引用 / 提示框 */
+    .callout {
+      background: #f3efe9;
+      border-left: 5px solid #c4b8a8;
+      padding: 1.3rem 1.8rem;
+      margin: 2.2rem 0;
+      border-radius: 0 10px 10px 0;
+      font-size: 0.98rem;
+      color: #3f3b34;
+    }
+
+    .callout strong {
+      font-weight: 600;
+      color: #2e2a24;
+    }
+
+    /* 通用段落 */
+    section {
+      margin: 2.4rem 0;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      color: #3d3a33;
+      border-bottom: 1px dashed #dcd5cb;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin: 1.4rem 0 0.5rem;
+      color: #4d483f;
+    }
+
+    p {
+      margin: 0.8rem 0;
+      text-align: justify;
+    }
+
+    ul {
+      margin: 0.8rem 0 0.8rem 1.8rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* 特点卡片 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.6rem 0;
+    }
+
+    .feature-card {
+      flex: 1 1 180px;
+      background: #f8f5f0;
+      padding: 1.2rem 1rem;
+      border-radius: 14px;
+      border: 1px solid #eae4db;
+      transition: background 0.2s;
+    }
+
+    .feature-card:hover {
+      background: #f0ebe2;
+    }
+
+    .feature-card .card-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-card h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: #3d3a33;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      margin: 0;
+      color: #5c574e;
+    }
+
+    /* FAQ 摘要 */
+    .faq-item {
+      margin: 1.4rem 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #3d3a33;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-a {
+      padding-left: 0.6rem;
+      border-left: 2px solid #d4cdc0;
+      color: #4f4a40;
+      font-size: 0.97rem;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      margin-top: 2.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e7e2d9;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #5c574e;
+    }
+
+    .footer-links a {
+      color: #7d6b56;
+      text-decoration: none;
+      border-bottom: 1px dotted #b9ae9f;
+    }
+
+    .footer-links a:hover {
+      color: #4f3e2e;
+      border-bottom: 1px solid #7d6b56;
+    }
+
+    .footer-links .sep {
+      margin: 0 0.5rem;
+      color: #ccc4b7;
+    }
+
+    a {
+      color: #7d6b56;
+      text-decoration: none;
+      border-bottom: 1px dotted #c6bba9;
+    }
+
+    a:hover {
+      color: #4f3e2e;
+      border-bottom: 1px solid #7d6b56;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>爱游戏 · 一种坦诚的陪伴</h1>
+    <p>不追逐喧哗的热榜，只关心每一次真实的触动。<br>关于游戏的记录、思考与分享，从这里开始。</p>
+  </div>
+
+  <!-- 一段引导 -->
+  <div class="callout">
+    <strong>写在前面：</strong> 游戏从来不只是消遣。它可以是叙事艺术、策略实验、社交桥梁，甚至是一段安静的自省时间。<a href="https://lineigame.com">爱游戏</a>希望以平实的视角，整理这些体验的切片，不夸大，不煽情，只为留住那些值得被记住的瞬间。
+  </div>
+
+  <!-- 优势区 / 特点 -->
+  <section>
+    <h2>为什么需要另一种游戏视角</h2>
+    <p>市面上有太多追逐流量与数据的评测，算法不断推荐相似的玩法与爆款。但我们相信，游戏的价值应当由玩家自己定义。<a href="https://lineigame.com">爱游戏</a>更关注下面这些方向：</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="card-icon">🎯</div>
+        <h4>不跟风</h4>
+        <p>不追逐每周新作，而是认真体验后再分享。慢一点，反而更清晰。</p>
+      </div>
+      <div class="feature-card">
+        <div class="card-icon">📖</div>
+        <h4>有温度的文字</h4>
+        <p>每篇内容都像一篇手记，记录玩法、故事与那一刻的心情。</p>
+      </div>
+      <div class="feature-card">
+        <div class="card-icon">🧩</div>
+        <h4>类型无边界</h4>
+        <p>从独立小品到经典重制，从解谜到模拟经营，不拘一格。</p>
+      </div>
+    </div>
+
+    <p>平台不依靠算法推荐，而是通过选题与编辑的筛选，让每一篇文章都有被发现的理由。如果你也厌倦了千篇一律的“必玩清单”，不妨来<a href="https://lineigame.com">爱游戏</a>随便翻翻，也许能遇到一份意外的共鸣。</p>
+  </section>
+
+  <!-- 说明区：场景与用法 -->
+  <section>
+    <h2>可以怎样使用这里</h2>
+    <p><a href="https://lineigame.com">爱游戏</a>的内容组织围绕几个常见场景展开，你可以根据自己的兴趣快速找到对应内容：</p>
+    <ul>
+      <li><strong>游戏手记</strong> — 完整的体验回顾，包含玩法、美术、叙事与个人感受，适合深度阅读。</li>
+      <li><strong>短评集</strong> — 三五段话讲清一款游戏的核心气质，适合闲暇时浏览，快速发现对味的作品。</li>
+      <li><strong>主题特辑</strong> — 围绕某个关键词（如“孤独感”、“建造”、“非线性叙事”）整理多款游戏，帮你横向比较。</li>
+      <li><strong>玩家来信</strong> — 不定期收录来自其他玩家的投稿与推荐，让不同声音被听见。</li>
+    </ul>
+    <p>所有内容均保持克制的语气，不堆砌术语，也不刻意制造焦虑。即使你只是偶尔玩游戏，也能轻松读下去。</p>
+  </section>
+
+  <!-- FAQ 摘要 -->
+  <section>
+    <h2>常见疑问摘要</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Q：这里的文章多久更新一次？</div>
+      <div class="faq-a">没有固定频率，但保持每周至少一篇新内容。更看重质量而非数量，偶尔会花两周时间打磨一篇长文。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q：会介绍手游、主机还是 PC 游戏？</div>
+      <div class="faq-a">三者都有，但更侧重 PC 与主机平台。手游方面会选择设计上有独特思考的作品，不包含氪金导向的内容。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q：我可以投稿或者推荐游戏吗？</div>
+      <div class="faq-a">当然可以。在<a href="https://lineigame.com">爱游戏</a>页面底部能找到联系方式，投稿不保证一定发布，但每封邮件都会被认真阅读。</div>
+    </div>
+
+    <p style="margin-top:1.6rem; font-size:0.93rem; color:#6b655b;">更多疑问欢迎直接在站内浏览或通过页面提供的渠道沟通。</p>
+  </section>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <span>持续记录 · 不疾不徐</span>
+    <span class="sep">·</span>
+    <a href="https://lineigame.com">爱游戏</a>
+    <span class="sep">·</span>
+    <span>关于我们</span>
+    <span class="sep">·</span>
+    <span>隐私说明</span>
+    <br><br>
+    <span style="font-size:0.85rem; color:#8a847a;">© 2025 · 文字与体验均属于每一位认真的玩家</span>
+  </div>
+
+</div>
+</body>
+</html>
