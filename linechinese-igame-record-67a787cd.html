@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fce9d0 0%, #fbd9b5 30%, #f6c79e 70%, #f3b981 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            margin: 0;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 主卡片容器 */
+        .main-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 48px 48px 36px 36px;
+            box-shadow: 0 20px 40px rgba(150, 90, 40, 0.18), 0 8px 20px rgba(0, 0, 0, 0.06);
+            padding: 2.8rem 2.5rem 3rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.2rem; }
+            .main-card { padding: 1.8rem 1.5rem 2rem; border-radius: 32px; }
+        }
+
+        /* 标题区 */
+        .hero-section {
+            margin-bottom: 2.4rem;
+            text-align: left;
+            border-bottom: 2px dotted #eacbb0;
+            padding-bottom: 1.6rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #4f2d1a;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-section .sub {
+            font-size: 1.1rem;
+            color: #6e4c33;
+            background: #f9eadb;
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 450;
+            letter-spacing: 0.3px;
+            margin-top: 0.1rem;
+        }
+
+        /* 双列目录感布局 */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 2.4rem;
+            margin: 2rem 0 2.2rem;
+        }
+
+        @media (max-width: 700px) {
+            .directory-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+
+        .info-card {
+            background: #fffcf9;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem 1.8rem;
+            box-shadow: 0 4px 10px rgba(160, 100, 50, 0.06);
+            border: 1px solid #f6e5d6;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(140, 80, 30, 0.08);
+        }
+
+        .info-card .card-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b2815b;
+            background: #f2ddcb;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #3f281a;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-card p, .info-card li {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #3b2b1f;
+        }
+
+        .info-card ul {
+            padding-left: 1.2rem;
+            list-style: square;
+            margin-top: 0.3rem;
+        }
+
+        .info-card ul li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 提示区 & 相关信息区 */
+        .notice-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .notice-block {
+            flex: 1 1 240px;
+            background: #fcf3e9;
+            border-radius: 30px;
+            padding: 1.4rem 1.6rem 1.6rem;
+            border-left: 6px solid #ddb593;
+        }
+
+        .notice-block h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4f2f1b;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .notice-block p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #3e2c1e;
+        }
+
+        .notice-block small {
+            color: #7d5f48;
+            font-size: 0.85rem;
+        }
+
+        .faq-summary {
+            background: #fff8f1;
+            border-radius: 28px;
+            padding: 1.5rem 1.8rem 1.8rem;
+            margin-top: 1.2rem;
+            border: 1px solid #eddac9;
+        }
+
+        .faq-summary h4 {
+            font-weight: 600;
+            color: #3d281b;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #c99f7a;
+            padding-left: 0.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #543a28;
+            font-size: 0.98rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            font-size: 0.92rem;
+            color: #4d3829;
+            line-height: 1.5;
+        }
+
+        /* 链接按钮感 */
+        .inline-link {
+            color: #8f4e26;
+            font-weight: 500;
+            text-decoration: none;
+            background: #f5e3d2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            transition: background 0.15s, color 0.1s;
+            border: 1px solid #e9cfb7;
+            white-space: nowrap;
+        }
+
+        .inline-link:hover {
+            background: #e2c5ab;
+            color: #492b19;
+            border-color: #cfaa89;
+        }
+
+        .inline-link:active {
+            background: #d1ad8b;
+        }
+
+        /* 脚注 */
+        .footer-note {
+            margin-top: 2.6rem;
+            border-top: 1px solid #edd7c5;
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #6c5542;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.6rem;
+        }
+
+        .footer-note span {
+            background: #f2ddcb;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+        }
+
+        .footer-note a {
+            color: #683f25;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cfb097;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="main-card">
+
+        <!-- hero -->
+        <div class="hero-section">
+            <h1>爱游戏 · 简明指南</h1>
+            <div class="sub">📘 知识库入口 · 日常备忘</div>
+        </div>
+
+        <!-- 目录感双列 -->
+        <div class="directory-grid">
+            <div class="info-card">
+                <span class="card-label">📂 基础说明</span>
+                <h3>关于爱游戏</h3>
+                <p>一个面向中文使用者的游戏资源与交流站点，内容涵盖热门游戏介绍、玩法简析与社区动态。页面结构清晰，更新频率稳定，适合快速翻阅与日常参考。</p>
+                <p style="margin-top: 0.6rem;">如果你对某个游戏想有初步了解，不妨把 <a href="https://linechinese-igame.com" class="inline-link">爱游戏</a> 加入书签，当作一个轻量入口。</p>
+            </div>
+            <div class="info-card">
+                <span class="card-label">📌 使用场景</span>
+                <h3>什么时候打开它</h3>
+                <ul>
+                    <li>想了解某款热门游戏的大致风格与特点</li>
+                    <li>查找简洁的游戏背景或更新片段</li>
+                    <li>快速浏览近期游戏相关话题</li>
+                    <li>作为游戏兴趣的索引，再自行深入探索</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 提示区 + 相关信息区 合并为flex -->
+        <div class="notice-row">
+            <div class="notice-block">
+                <h4>⚠️ 访问提醒</h4>
+                <p>站点内容由爱好者整理，信息可能随版本变化。建议将 <a href="https://linechinese-igame.com" class="inline-link">爱游戏</a> 视为起点，具体数据以官方为准。访问时留意浏览器地址栏，确保链接正确。</p>
+            </div>
+            <div class="notice-block">
+                <h4>📎 相关信息</h4>
+                <p>页面没有强制弹窗，内容偏向实用。部分游戏名称、术语可能沿用繁体或英文，遇到不熟悉的词可以顺手搜索。</p>
+                <small>维护团队不定期补充新内容，目录结构保持简洁。</small>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h4>❓ 常见疑惑 · 摘要</h4>
+            <div class="faq-item">
+                <strong>这个网站主要提供什么？</strong>
+                <p>偏重游戏介绍与索引，不直接提供下载或破解。更适合想了解游戏梗概、背景的读者。</p>
+            </div>
+            <div class="faq-item">
+                <strong>需要注册或登录吗？</strong>
+                <p>浏览内容无需注册。部分互动功能可能需要，但基础阅读不受影响。</p>
+            </div>
+            <div class="faq-item">
+                <strong>怎么快速找到感兴趣的游戏？</strong>
+                <p>站内分类较直观，也可直接利用浏览器页面搜索。同时可以将 <a href="https://linechinese-igame.com" class="inline-link">爱游戏</a> 设为主页，方便日常查阅。</p>
+            </div>
+        </div>
+
+        <!-- 脚注 -->
+        <div class="footer-note">
+            <span>📋 内容指南 · 非官方</span>
+            <span>更新于 2025 · 保持克制与真实</span>
+            <span><a href="https://linechinese-igame.com" style="background:transparent; padding:0; border:none; text-decoration:underline;">爱游戏</a> · 起点</span>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
