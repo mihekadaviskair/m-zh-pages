@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>爱游戏 — 发现游戏本来的样子</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f1f2f4;
+      font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans SC", "Helvetica Neue", sans-serif;
+      color: #1f2a3a;
+      line-height: 1.7;
+      padding: 28px 16px;
+    }
+    .wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* 杂志式卡片容器 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e5ea;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+      padding: 36px 32px;
+      margin-bottom: 28px;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    /* 首页横幅（hero） */
+    .hero {
+      padding: 48px 32px 40px;
+      background: linear-gradient(145deg, #f8f9fb 0%, #edf0f4 100%);
+      border-bottom: 2px solid #d0d6df;
+      border-radius: 28px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #1f2a3a;
+      margin-bottom: 10px;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #576375;
+      max-width: 500px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* 背景说明块 */
+    .bg-note {
+      background: #f6f7f9;
+      border-radius: 20px;
+      padding: 22px 28px;
+      margin: 18px 0 22px 0;
+      border-left: 4px solid #b8c2d1;
+      font-size: 0.96rem;
+      color: #2e3b4e;
+    }
+
+    /* 段落标题 */
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin: 0 0 12px 0;
+      color: #1f2a3a;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin: 20px 0 6px 0;
+      color: #2a384c;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+    }
+
+    /* 三栏式布局（适合三段介绍） */
+    .grid-three {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin: 24px 0 12px;
+    }
+    .grid-item {
+      background: #fafbfc;
+      border-radius: 20px;
+      padding: 20px 16px;
+      border: 1px solid #e7eaef;
+    }
+    .grid-item em {
+      display: inline-block;
+      font-style: normal;
+      background: #dce2ec;
+      color: #1f2a3a;
+      font-weight: 500;
+      font-size: 0.78rem;
+      padding: 2px 12px;
+      border-radius: 30px;
+      margin-bottom: 10px;
+    }
+    .grid-item p {
+      font-size: 0.95rem;
+      color: #2f3d52;
+    }
+
+    /* FAQ 摘要，轻量呈现 */
+    .faq-mini {
+      margin: 20px 0 6px;
+    }
+    .faq-mini details {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #e7e9ef;
+      padding-bottom: 8px;
+    }
+    .faq-mini details summary {
+      font-weight: 500;
+      cursor: pointer;
+      padding: 6px 0;
+      color: #1f2a3a;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .faq-mini details summary::before {
+      content: "▸ ";
+      color: #7a8b9f;
+      margin-right: 6px;
+    }
+    .faq-mini details[open] summary::before {
+      content: "▾ ";
+    }
+    .faq-mini details p {
+      padding: 6px 18px 4px 18px;
+      color: #405168;
+      font-size: 0.93rem;
+    }
+
+    /* 页尾访问提示 */
+    .footer-visit {
+      text-align: center;
+      padding: 24px 16px 16px;
+      border-top: 1px solid #dbe0e7;
+      margin-top: 10px;
+      color: #4a5a70;
+      font-size: 0.98rem;
+    }
+    .footer-visit a {
+      color: #1f3a5f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #9aabbf;
+    }
+    .footer-visit a:hover {
+      color: #0f253c;
+      border-bottom-style: solid;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #d6dbe3;
+      margin: 28px 0 16px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .card {
+        padding: 24px 18px;
+      }
+      .hero {
+        padding: 32px 18px 30px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .grid-three {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .grid-item {
+        padding: 16px;
+      }
+    }
+    @media (max-width: 440px) {
+      body {
+        padding: 16px 10px;
+      }
+      .card {
+        padding: 20px 14px;
+      }
+      .bg-note {
+        padding: 14px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- 首页横幅 -->
+    <div class="hero">
+      <h1>爱游戏 · 不止于浏览</h1>
+      <div class="sub">一个帮助玩家快速定位、理解并接近游戏世界的轻量级起点。</div>
+    </div>
+
+    <!-- 背景说明卡片 -->
+    <div class="card">
+      <h2>它是什么？</h2>
+      <div class="bg-note">
+        <strong>linehub-igame.com</strong> 是一个信息集合与导航页面，初衷是让人在碎片时间里，能更直接地找到自己关心的游戏内容，而不必在庞杂的搜索结果里反复折返。<br>
+        你可以把它理解成一个「路标」—— 不喧哗，不堆砌，只帮你指个方向。
+      </div>
+      <p>很多人在面对新游戏时，第一反应是“这网站能信吗”“去哪看比较完整”。而<a href="https://linehub-igame.com" style="font-weight:500; color:#1f3a5f; text-decoration:underline; text-underline-offset:3px;">爱游戏</a>尝试做的是：把最必要的几个落脚点提前梳理好，让你不必从零开始甄别。它本身不制造评价，但为你整理了值得关注的脉络。</p>
+    </div>
+
+    <!-- 三段自然介绍 (grid)  -->
+    <div class="card">
+      <h2>三个值得留意的侧面</h2>
+      <div class="grid-three">
+        <div class="grid-item">
+          <em>01 · 快速定位</em>
+          <p>从游戏名称到平台版本、社区讨论入口，页面尽量省去中间跳转。你不必记住一串地址，只要记得来<a href="https://linehub-igame.com" style="font-weight:500; color:#1f3a5f;">爱游戏</a>看一眼，就能找到下一步的方向。</p>
+        </div>
+        <div class="grid-item">
+          <em>02 · 克制陈列</em>
+          <p>没有满屏横幅和自动播放的视频。每项内容都经过筛选，避免信息轰炸。我们希望你在查找时仍能保持自己的判断节奏——安静，但足够清晰。</p>
+        </div>
+        <div class="grid-item">
+          <em>03 · 持续迭代</em>
+          <p>这个页面本身不是终点。随着游戏社区和用户习惯的变化，内容结构也会调整。目前它更侧重于单机与多人联机游戏的信息汇集，未来会逐步扩展类型。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 场景 + FAQ 摘要 混合卡片 -->
+    <div class="card">
+      <h2>可能适合你的场景</h2>
+      <p>如果你正好是那种——想玩一款新游戏，但不想先看半小时测评；或者逛论坛时发现大家都在聊某个作品，你却连官网都找不到——那<strong>爱游戏</strong>也许能帮你省一点时间。它不是评测站，也不是商城，更像一个安静的「起始页」。</p>
+
+      <hr>
+      <h3>一些简单的问题</h3>
+      <div class="faq-mini">
+        <details>
+          <summary>这个网站会收录所有游戏吗？</summary>
+          <p>不会，也不打算。目前主要集中在有一定社区讨论、且中文资料较分散的作品上。独立游戏和部分冷门作品会视情况加入，但优先保证信息的准确。</p>
+        </details>
+        <details>
+          <summary>页面上的链接安全吗？</summary>
+          <p>所有外链均指向官方或经核实的社区地址（Steam、itch.io、官方Discord等）。不会插入未经确认的第三方站点，也没有广告重定向。</p>
+        </details>
+        <details>
+          <summary>我可以建议添加某个游戏吗？</summary>
+          <p>欢迎通过页面底部的联系方式反馈（目前正在搭建反馈通道）。在正式入口上线前，你也可以在相关社区提及你的想法。</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 (自然嵌入“爱游戏”链接) -->
+    <div class="footer-visit">
+      <p>如果你仍不确定从哪开始，不妨直接前往 <a href="https://linehub-igame.com">爱游戏</a> 主站看一眼。<br>那里没有催促，只有一排等你挑的游戏名字。</p>
+      <p style="margin-top:10px; font-size:0.85rem; color:#6a7d94;">— 保持好奇，克制选择 —</p>
+    </div>
+
+  </div>
+</body>
+</html>
